@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace StudentManagementHub
 {
@@ -21,7 +22,10 @@ namespace StudentManagementHub
             Age = age;
             Course = course;
         }
-
+        public override string ToString()
+        {
+            return $"{StudentId},{FullName},{Age},{Course}";
+        }
 
     }
 }
