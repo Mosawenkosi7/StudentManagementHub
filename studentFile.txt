@@ -1,0 +1,8 @@
+101,Ryan Smith,20,BComp
+102,Maria Brown,22,BIT 
+103,Jayden Black,21,DIT
+104,Lerato Mokoena,25,BComp  
+105,Alicia Molefe,23,BIT
+106,Mpho Tladi,22,DIT
+107,Susan Bloom,18,BComp
+108,Mark Anders,18,BIT
