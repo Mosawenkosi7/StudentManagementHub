@@ -145,6 +145,7 @@
             this.ViewAll.TabIndex = 9;
             this.ViewAll.Text = "Refresh";
             this.ViewAll.UseVisualStyleBackColor = false;
+            this.ViewAll.Click += new System.EventHandler(this.ViewAll_Click);
             // 
             // UpdateBtn
             // 
