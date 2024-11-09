@@ -69,5 +69,39 @@ namespace StudentManagementHub
         {
             File.WriteAllLines(studentFile, students.Select(s => s.ToString()));
         }
+
+
+        //Adding functionality
+        //a list that will store all the information from the text file, line by line 
+        public List<string> rawData = new List<string>();
+
+        //create a method that will read the list and store the data into a list 
+        public void ReadList()
+        {
+            using (StreamReader read = new StreamReader(studentFile))
+            {
+                //read each line and add it to a list 
+                string line;
+                while ((line = read.ReadLine()) != null)
+                {
+                    rawData.Add(line); //all the text from student text file are added row by row 
+                }
+            }
+        }
+
+        //create a method that will update the student text file when the button is clicked
+        public void WriteFile(string studentId, string name, int age, string course)
+        {
+            using (FileStream fs = new FileStream(studentFile, FileMode.Append, FileAccess.Write))
+            {
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    string studentData = $"{studentId},{name},{age},{course}";
+                    writer.Write(studentData);
+                }
+            }
+
+        }
+
     }
 }
