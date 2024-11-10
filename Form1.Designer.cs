@@ -194,6 +194,7 @@
             this.SummaryBtn.TabIndex = 12;
             this.SummaryBtn.Text = "Summary";
             this.SummaryBtn.UseVisualStyleBackColor = false;
+            this.SummaryBtn.Click += new System.EventHandler(this.SummaryBtn_Click);
             // 
             // dataGridView1
             // 
@@ -224,11 +225,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(78, 39);
+            this.label6.Location = new System.Drawing.Point(37, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(175, 26);
+            this.label6.Size = new System.Drawing.Size(222, 26);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Student Details";
+            this.label6.Text = "Student Credentials";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // Form1
             // 

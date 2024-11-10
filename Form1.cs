@@ -155,5 +155,17 @@ namespace StudentManagementHub
                 MessageBox.Show($"An error occurred while deleting the record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void SummaryBtn_Click(object sender, EventArgs e)
+        {
+            //LoadStudents();
+            handler.GenerateSummary(students);
+            MessageBox.Show("Summary report generated as summary.txt");
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -149,5 +149,14 @@ namespace StudentManagementHub
 
         }
 
+        // Generate and save the summary report
+        public void GenerateSummary(List<Student> students)
+        {
+            int totalStudents = students.Count;
+            double averageAge = students.Count > 0 ? students.Average(s => s.Age) : 0;
+            var summary = $"Total Students: {totalStudents}\nAverage Age: {averageAge:F2}";
+            File.WriteAllText(summaryFile, summary);
+        }
+
     }
 }
