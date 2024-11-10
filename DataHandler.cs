@@ -135,6 +135,19 @@ namespace StudentManagementHub
                 MessageBox.Show($"An error occurred while updating the file: {ex.Message}");
             }
         }
+        public void DeleteStudent(string studentID)
+        {
+            if (File.Exists(studentFile))
+            {
+                // Read all lines and filter out the student with the specified ID
+                var lines = File.ReadAllLines(studentFile);
+                var updatedLines = lines.Where(line => !line.StartsWith(studentID + ",")).ToArray();
+
+                // Rewrite the file with the updated list
+                File.WriteAllLines(studentFile, updatedLines);
+            }
+
+        }
 
     }
 }

@@ -109,5 +109,51 @@ namespace StudentManagementHub
             UpdateStudent updateForm = new UpdateStudent();
             updateForm.Show();
         }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult confirmResult = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                int index = dataGridView1.CurrentCell.RowIndex;
+
+                if (index >= 0 && index < students.Count)
+                {
+                    // Get the student ID to delete
+                    string studentID = students[index].StudentId;
+
+                    // Remove the student from the list
+                    students.RemoveAt(index);
+
+                    // Call FileHandler to remove the student from the text file
+                    handler.DeleteStudent(studentID);
+
+                    // Refresh the DataGridView
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = students;
+
+                    MessageBox.Show("Record deleted successfully.", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Selected row index is out of range.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while deleting the record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
