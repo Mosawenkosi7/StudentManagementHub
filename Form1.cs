@@ -22,8 +22,17 @@ namespace StudentManagementHub
         {
             InitializeComponent();
             handler = new DataHandler();
-            LoadStudents();
+            handler.CreateAndPopulateFile();
+            if (!isAddDataToListExecuted)
+            {
+                LoadStudents(); //this is where we display the list only once
+                isAddDataToListExecuted = true;
+            }
+           
+            //dataGridView1.DataSource = null;
+
         }
+       
         private void LoadStudents()//for viewing data
         {
 
@@ -167,5 +176,7 @@ namespace StudentManagementHub
         {
 
         }
+
+        
     }
 }

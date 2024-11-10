@@ -157,6 +157,35 @@ namespace StudentManagementHub
             var summary = $"Total Students: {totalStudents}\nAverage Age: {averageAge:F2}";
             File.WriteAllText(summaryFile, summary);
         }
+        private readonly List<string> valuesList = new List<string>
+        {
+            "102,Maria Brown,22,BIT",
+            "103,Jayden Black,21,DIT",
+            "101,james,20,BComp",
+            "102,Maria Brown,22,BIT",
+            "103,Jayden Black,21,DIT",
+            "104,Lerato,25,BComp",
+            "105,Alicia Molefe,23,BIT"
+
+        };
+        public void CreateAndPopulateFile()
+        {
+            if (!File.Exists(studentFile))
+            {
+                using (StreamWriter writer = new StreamWriter(studentFile))
+                {
+                    foreach (var value in valuesList)
+                    {
+                        writer.WriteLine(value);
+                    }
+                }
+                MessageBox.Show("File created and populated with values.");
+            }
+            else
+            {
+                MessageBox.Show("File already exists.");
+            }
+        }
 
     }
 }
