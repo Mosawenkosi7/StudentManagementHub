@@ -102,5 +102,12 @@ namespace StudentManagementHub
                 MessageBox.Show("All text fields are required");
             }
         }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            //when this button is clicked, open new form
+            UpdateStudent updateForm = new UpdateStudent();
+            updateForm.Show();
+        }
     }
 }

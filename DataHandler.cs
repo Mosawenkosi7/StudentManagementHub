@@ -103,5 +103,38 @@ namespace StudentManagementHub
 
         }
 
+        //create the method that will update existing values in the text file
+
+        //this method will update the list based on the index of the selected item
+        public void UpdateStudentFile(Student student)
+        {
+            try
+            {
+                // Read all lines from the file
+                List<string> lines = File.ReadAllLines(studentFile).ToList();
+
+                // Search for the line with matching StudentId
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    string[] splitData = lines[i].Split(',');
+
+                    // Ensure StudentId comparison is accurate
+                    if (splitData[0].ToString() == student.StudentId.ToString())
+                    {
+                        // Replace the line with updated data
+                        lines[i] = $"{student.StudentId},{student.FullName},{student.Age},{student.Course}";
+                        break; // Stop once the matching student is found
+                    }
+                }
+
+                // Write updated lines back to the file
+                File.WriteAllLines(studentFile, lines);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while updating the file: {ex.Message}");
+            }
+        }
+
     }
 }
